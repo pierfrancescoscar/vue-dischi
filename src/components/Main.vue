@@ -9,7 +9,7 @@
                     :subtitle="disk.author"
                     :addInfo="disk.year"
                     :addInfo2="disk.genre"
-                />
+                 />
               </div>
 
           </div>
