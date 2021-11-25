@@ -13,7 +13,7 @@
               </div>
 
           </div>
-          <div v-else>Loading...</div>
+                <Loader v-else />
       </section>
   </main>
 </template>
@@ -21,11 +21,13 @@
 <script>
 import axios from 'axios';
 import Card from '@/components/Card.vue';
+import Loader from '@/components/Loader.vue';
 
 export default {
     name: 'Main',
     components: {
         Card,
+        Loader,
     },
 
     data() {
