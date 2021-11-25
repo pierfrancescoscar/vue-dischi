@@ -1,8 +1,8 @@
 <template>
-  <main>
+  <main class="p-3">
       <section class="container">
           <div v-if="disk.length > 0" class="row">
-              <div v-for="(element, index) in disk" :key="`item-${index}`" class="col-6">
+              <div class="my-column text-center" v-for="(element, index) in disk" :key="`item-${index}`">
                 <Card 
                     :image="element.poster"
                     :title="element.title"
@@ -55,4 +55,8 @@ export default {
 main {
     background-color: $bg-color;
 }
+    .my-column {
+        width: calc(100% / 8);
+        
+    }
 </style>
