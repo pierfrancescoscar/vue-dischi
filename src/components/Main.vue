@@ -4,11 +4,11 @@
           <div v-if="disk.length > 0" class="row">
               <div v-for="(element, index) in disk" :key="`item-${index}`" class="col-6">
                 <Card 
-                    :image="disk.poster"
-                    :title="disk.title"
-                    :subtitle="disk.author"
-                    :addInfo="disk.year"
-                    :addInfo2="disk.genre"
+                    :image="element.poster"
+                    :title="element.title"
+                    :subtitle="element.author"
+                    :addInfo="element.year"
+                    :addInfo2="element.genre"
                  />
               </div>
 
@@ -40,7 +40,7 @@ export default {
         getDisk() {
             axios.get('https://flynn.boolean.careers/exercises/api/array/music')
             .then(result => {
-                this.disk = result.data;
+                this.disk = result.data.response;
             })
             .catch(err => console.log(err));
         }
