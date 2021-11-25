@@ -1,5 +1,5 @@
 <template>
-    <div class="my-card text-center p-2 h-100 pb-3">
+    <div class="my-card text-center p-3 h-100">
         <img class="w-50 mb-2" :src="image" :alt="title" />
         <h3 class="h5">{{ title }}</h3>
         <h4 class="h6">{{ subtitle }}</h4>
