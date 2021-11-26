@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- Header -->
-    <Header />
+    <Header @choice="searchGenre" />
     <!-- Main Content -->
     <Main :disc="disk" />
     
@@ -35,6 +35,9 @@ export default {
                 this.disk = result.data.response;
             })
             .catch(err => console.log(err));
+        },
+        searchGenre() {
+          console.log('Emit event');
         }
     }
 }

@@ -5,14 +5,17 @@
             <img src="../assets/logo (2).png" alt="logo">
           </div>
           <div class="col-6 select-box d-flex justify-content-end">
-              <select>
+              <select 
+              v-model="genreChoice"
+              @change="$emit('choice', genreChoice)"
+              >
                   <option value="" disabled selected hidden>Choose your genre</option>
-                  <option value="">All genres</option>
-                  <option value="">Rock</option>
-                  <option value="">Pop</option>
-                  <option value="">Jazz</option>
-                  <option value="">Metal</option>
-                  <option value="">Rock</option>
+                  <option value="all">All genres</option>
+                  <option value="rock">Rock</option>
+                  <option value="pop">Pop</option>
+                  <option value="jazz">Jazz</option>
+                  <option value="metal">Metal</option>
+                  <option value="rock">Rock</option>
               </select>
           </div>
       </section>
@@ -22,6 +25,11 @@
 <script>
 export default {
     name: 'Header',
+    data() {
+        return {
+            genreChoice: '',
+        }
+    }
 }
 </script>
 
