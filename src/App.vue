@@ -23,6 +23,7 @@ export default {
   data() {
         return {
             disk: [],
+            genreChoice: '',
         };
     },
     created() {
@@ -36,8 +37,10 @@ export default {
             })
             .catch(err => console.log(err));
         },
-        searchGenre() {
-          console.log('Emit event');
+        searchGenre(el) {
+          // console.log('Emit event');
+          this.genreChoice = el;
+          console.log(this.genreChoice)
         }
     }
 }
