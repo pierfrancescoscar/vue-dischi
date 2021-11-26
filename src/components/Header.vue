@@ -16,8 +16,10 @@
                   <option value="jazz">Jazz</option>
                   <option value="metal">Metal</option>
               </select> -->
-              <select>
-                  <option value="genre"
+              <select v-model="genreChoice"
+              @change="$emit('choice', genreChoice)">
+               <option value="">Choose a genre</option>
+                  <option :value="item"
                   v-for="(item, index) in genreList" :key="`genre-${index}`"
                   >
                     {{item}}
@@ -34,7 +36,7 @@ export default {
     props: {
         genreList: Array,
     },
-    
+
     data() {
         return {
             genreChoice: '',
