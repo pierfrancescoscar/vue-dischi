@@ -3,12 +3,13 @@
     <!-- Header -->
     <Header />
     <!-- Main Content -->
-    <Main />
+    <Main :disc="disk" />
     
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import Header from '@/components/Header.vue';
 import Main from '@/components/Main.vue';
 
@@ -18,7 +19,24 @@ export default {
     Header,
     Main,
     
-  }
+  },
+  data() {
+        return {
+            disk: [],
+        };
+    },
+    created() {
+        this.getDisk();
+    },
+    methods: {
+        getDisk() {
+            axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+            .then(result => {
+                this.disk = result.data.response;
+            })
+            .catch(err => console.log(err));
+        }
+    }
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <main class="p-5">
       <section class="container">
-          <div v-if="disk.length > 0" class="row justify-content-center">
-              <div class="my-column text-center mb-4" v-for="(element, index) in disk" :key="`item-${index}`">
+          <div v-if="disc.length > 0" class="row justify-content-center">
+              <div class="my-column text-center mb-4" v-for="(element, index) in disc" :key="`item-${index}`">
                 <Card 
                     :image="element.poster"
                     :title="element.title"
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import Card from '@/components/Card.vue';
 import Loader from '@/components/Loader.vue';
 
@@ -29,24 +29,9 @@ export default {
         Card,
         Loader,
     },
-
-    data() {
-        return {
-            disk: [],
-        };
+    props: {
+        disc: Array,
     },
-    created() {
-        this.getDisk();
-    },
-    methods: {
-        getDisk() {
-            axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-            .then(result => {
-                this.disk = result.data.response;
-            })
-            .catch(err => console.log(err));
-        }
-    }
 
 }
 </script>
