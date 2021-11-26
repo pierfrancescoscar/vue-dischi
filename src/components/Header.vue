@@ -5,7 +5,7 @@
             <img src="../assets/logo (2).png" alt="logo">
           </div>
           <div class="col-6 select-box d-flex justify-content-end">
-              <select 
+              <!-- <select 
               v-model="genreChoice"
               @change="$emit('choice', genreChoice)"
               >
@@ -15,6 +15,13 @@
                   <option value="pop">Pop</option>
                   <option value="jazz">Jazz</option>
                   <option value="metal">Metal</option>
+              </select> -->
+              <select>
+                  <option value="genre"
+                  v-for="(item, index) in genreList" :key="`genre-${index}`"
+                  >
+                    {{item}}
+                  </option>
               </select>
           </div>
       </section>
@@ -24,6 +31,10 @@
 <script>
 export default {
     name: 'Header',
+    props: {
+        genreList: Array,
+    },
+    
     data() {
         return {
             genreChoice: '',
