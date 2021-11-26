@@ -3,7 +3,7 @@
     <!-- Header -->
     <Header @choice="searchGenre" />
     <!-- Main Content -->
-    <Main :disc="disk" />
+    <Main :disc="filteredGenre" />
     
   </div>
 </template>
@@ -25,6 +25,16 @@ export default {
             disk: [],
             genreChoice: '',
         };
+    },
+    computed: {
+      filteredGenre() {
+        if(this.genreChoice === '') {
+          return this.disk;
+        }
+        return this.disk.filter(item => {
+          return item.genre.toLowerCase().includes(this.genreChoice.toLowerCase())
+        })
+      }
     },
     created() {
         this.getDisk();

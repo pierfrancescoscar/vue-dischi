@@ -10,7 +10,7 @@
               @change="$emit('choice', genreChoice)"
               >
                   <option value="" disabled selected hidden>Choose your genre</option>
-                  <option value="all">All genres</option>
+                  <option value="">All genres</option>
                   <option value="rock">Rock</option>
                   <option value="pop">Pop</option>
                   <option value="jazz">Jazz</option>
